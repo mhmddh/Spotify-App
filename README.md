@@ -1,3 +1,10 @@
+You should followe the steps:
+1-Download and install CORS Extension on your browser
+2-Enter your CLIENT ID and SECRET ID (from SPOTIFY)
+3-Execute the command npm i
+4-Run the code by executing the command "ng serve -o"
+
+
 # SpotifyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.
