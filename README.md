@@ -14,3 +14,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Mainly the crendentials related to spotify exist under config.json file.
 
 
+Note : the spotify credentials exist under config.json
