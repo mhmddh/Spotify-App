@@ -1,0 +1,68 @@
+:root {
+  --icon-color: lightgreen;
+  --dark-color: black;
+}
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.p-l-25 {padding-left:25px;}
+.p-r-25 {padding-right:25px;}
+.p-10{padding: 10px;}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+  }
+
+.outer {
+text-align: center;
+}
+
+  .wrapper {
+   text-align: center;
+  }
+  .green {
+    color: rgb(30, 215, 96) /*spotify icon color */
+  }
+
+  .button {
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    margin-left: -20%;
+}
+
+  .relativecenter{
+    position:relative;
+    left: 25%;
+    width: 50%;
+
+  }
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper:before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: lightgray;
+  font-size: 18px;
+  padding-right: 0.5em;
+  position: absolute;
+  top: 6px;
+  right: 0;
+}
+
+input {
+width: 100%;
+padding-right: 30px;
+}

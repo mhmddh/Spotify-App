@@ -1,0 +1,50 @@
+<br>
+<div [ngClass]="{'centered' : (searchStr==null || searchStr==''),'relativecenter':(searchStr!=null && searchStr!='')}">
+    <div class="input-wrapper">
+        <input class="form-control" type="text" placeholder="Search for an artist..." [(ngModel)]="searchStr"
+            name="searchStr" (keyup)="searchMusic()">
+    </div> <br>
+</div>
+<div *ngIf="searchRes" class="cotainer">
+    <div class="row search-result">
+        <div class="card-deck">
+            <div *ngFor="let artist of searchRes  | sortBy:'asc':'name'">
+                <div class="card" style="width: 16rem;" *ngIf="artist.name!==null && artist.name!==''">
+                    <img class="card-img-top" alt="" src="{{artist.images[0].url}}" height="254px" width="254px"
+                        *ngIf="artist.images.length>0" />
+                    <img class="card-img-top" alt="" [src]="unknown" height="254px" width="254px"
+                        *ngIf="artist.images.length==0" />
+                    <div class="card-block p-20" style="padding: 20px;">
+                        <p class="card-title"><a routerLink="/album/{{artist.id}}">
+                                {{artist.name}}</a>
+                        </p>
+                        <p class="card-text text-muted">
+                            <small>{{artist.followers.total}} followers</small>
+                        </p>
+                        <p class="card-text">
+
+                            <span>
+                                <i [ngStyle]="{'color': artist.popularity>0 ? 'black' : (artist.popularity < 20 ? 'black' : null) }" class="fa fa-star"></i>
+                            </span> 
+                            <span>
+                                <i [ngStyle]="{'color': artist.popularity>=20 ? 'black' : (artist.popularity < 20 ? 'lightgray' : null) }" class="fa fa-star"></i>
+                            </span>
+                            <span >
+                                <i [ngStyle]="{'color': artist.popularity>=40 ? 'black' : (artist.popularity < 40 ? 'lightgray' : null) }" class="fa fa-star"></i>
+                            </span>
+                            <span >
+                                <i [ngStyle]="{'color': artist.popularity>=60 ? 'black' : (artist.popularity < 60 ? 'lightgray' : null) }" class="fa fa-star"></i>
+                            </span>
+                           
+                            <span >
+                                <i [ngStyle]="{'color': artist.popularity>=80 ? 'black' : (artist.popularity < 80 ? 'lightgray' : null) }" class="fa fa-star"></i>
+                            </span>
+                           
+                        </p>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
