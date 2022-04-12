@@ -42,7 +42,10 @@ export class ArtistListComponent implements OnInit {
     if (this.searchStr != '' && this.searchStr != null) {
       this._spotifyService.searchMusic(this.searchStr)
         .subscribe((res: any) => {
-          this.searchRes = res.artists.items;
+          for (let i = 0; i < res.artists.items.length; i++) {
+            if(res.artists.items[i].name.includes(this.searchStr))
+              this.searchRes.push(res.artists.items[i]);
+          }
         });
     }
   }
