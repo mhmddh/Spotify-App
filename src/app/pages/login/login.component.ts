@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    window.location.href = 'https://accounts.spotify.com/authorize' +
+    window.location.href = 'https://accounts.spotify.com/en/authorize/' +
       '?response_type=code&client_id=' + config.clientId +
       '&scope=' + encodeURIComponent('user-read-private user-read-email') +
       '&redirect_uri=' + encodeURIComponent(location.origin + '/' + config.redirectUri) + '';

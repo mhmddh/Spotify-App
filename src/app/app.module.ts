@@ -11,33 +11,26 @@ import { SpotifyService } from './services/spofity-service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { SortByPipe } from './common/pipes/sort-by.pipe';
-import { RouterModule, Routes } from '@angular/router';
 import { SpotifyAuthModule } from './auth-module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'artist', component: ArtistListComponent, canActivate: [ AppRouteGuard]},
-  { path: 'artist/:artist_name', component: ArtistListComponent, canActivate: [ AppRouteGuard]},
-  {path: 'album/:id', component: AlbumListComponent, canActivate: [ AppRouteGuard]},
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: '**', component: LoginComponent}
-];
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AlbumListComponent,
     ArtistListComponent,
-    SortByPipe
+    SortByPipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     HttpModule,
-    RouterModule.forRoot(routes),
     SpotifyAuthModule.forRoot(),
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    AppRoutingModule
 
   ],
   providers: [SpotifyService, AppRouteGuard,
