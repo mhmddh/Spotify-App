@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SpotifyService } from 'src/app/services/spofity-service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Artist } from 'src/app/common/models/model';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-artist-list',
@@ -40,12 +41,11 @@ export class ArtistListComponent implements OnInit {
     this.searchRes = [];
     localStorage.setItem("searchartist", this.searchStr);
     if (this.searchStr != '' && this.searchStr != null) {
-      this._spotifyService.searchMusic(this.searchStr)
-        .subscribe((res: any) => {
-          for (let i = 0; i < res.artists.items.length; i++) {
-            if(res.artists.items[i].name.includes(this.searchStr))
-              this.searchRes.push(res.artists.items[i]);
-          }
+      this._spotifyService.searchMusic(this.searchStr).pipe(map((listing) => listing.artists.items
+        .filter(x => x.name.toLowerCase().includes(this.searchStr.toLowerCase())))   // filter((x,i)=>  {x[i].name.includes(this.searchStr)})
+      )
+        .subscribe(res => {
+          this.searchRes = res;
         });
     }
   }
