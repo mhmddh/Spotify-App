@@ -8,7 +8,7 @@ import { AuthService } from './services/auth.service';
 
 const routes: Routes = [{
   path: 'authorized',
-  canActivate: [ AuthGuard ],
+  canActivate: [AuthGuard],
   component: SpotifyAuthComponent
 }];
 
@@ -17,7 +17,7 @@ const routes: Routes = [{
   imports: [RouterModule.forRoot(routes)],
   providers: [AuthGuard, TokenService, AuthService],
 })
-export class SpotifyAuthModule{
+export class SpotifyAuthModule {
   public static authRoutes(): Routes {
     return routes;
   }
