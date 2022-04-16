@@ -1,39 +1,44 @@
 <div *ngIf="artist">
-  <header class="artist-header">
-      <h1>{{artist.name}}</h1>
-      <p class="text-muted">Albums</p>
-  </header>
+        <header class="artist-header">
+                <h1>{{artist.name}}</h1>
+                <p class="text-muted">Albums</p>
+        </header>
 
-  <div class="artist-albums">
-      <div class="row">
-          <div class="card-deck">
-                  <div *ngFor="let album of albums" class=" col-sm-6 col-lg-3">
-                          <div class="card"  style="width: 16rem;">
-                                  <img class="card-img-top" alt=""  src="{{album.images[0].url}}" height="254px" width="254px"  *ngIf="album.images.length>0"/>
-                                  <img class="card-img-top" alt=""  src="unknown" height="254px" width="254px" *ngIf="album.images.length==0" />
-                                  <div class="card-block p-20" style="padding: 20px;">
-                                      <div style="height:80px ;">
-                                              <p class="card-title" style="margin-bottom: 0px;">
-                                                      {{album.name}}
-                                              </p>
-                                              <p class="card-text text-muted" >
-                                                     <small>{{artist.name}}</small>
-                                              </p>
-                                      </div>
+        <div class="artist-albums">
+                <div class="row">
+                        <div class="card-deck">
+                                <div *ngFor="let album of albums" class=" col-sm-6 col-lg-3">
+                                        <div class="card" style="width: 16rem;">
+                                                <img class="card-img-top" alt="" src="{{album.images[0].url}}"
+                                                        height="254px" width="254px" *ngIf="album.images.length>0" />
+                                                <img class="card-img-top" alt="" src="unknown" height="254px"
+                                                        width="254px" *ngIf="album.images.length==0" />
+                                                <div class="card-block p-20" style="padding: 20px;">
+                                                        <div style="height:80px ;">
+                                                                <p class="card-title" style="margin-bottom: 0px;">
+                                                                        {{album.name}}
+                                                                </p>
+                                                                <p class="card-text text-muted">
+                                                                        <small>{{artist.name}}</small>
+                                                                </p>
+                                                        </div>
 
-                                      <p class="card-text">
+                                                        <p class="card-text">
 
-                                              <span class=text-muted><small>{{album.release_date}}</small></span><br>
-                                              <span class=text-muted><small>{{album.total_tracks}} tracks</small></span>
-                                      </p>
-                                  </div>
-                                  <div class="card-footer bg-transparent text-muted text-center"><small>
-                                          <a href="{{artist.external_urls.spotify}}" target="blank" style="color: gray;">
-                                              Preview On Spotify</a></small></div>
-                              </div><br/>
-                  </div>
-          </div>
+                                                                <span
+                                                                        class=text-muted><small>{{album.release_date}}</small></span><br>
+                                                                <span class=text-muted><small>{{album.total_tracks}}
+                                                                                tracks</small></span>
+                                                        </p>
+                                                </div>
+                                                <div class="card-footer bg-transparent text-muted text-center"><small>
+                                                                <a [href]="artist.external_urls.spotify" target="blank"
+                                                                        style="color: gray;">
+                                                                        Preview On Spotify</a></small></div>
+                                        </div><br />
+                                </div>
+                        </div>
 
-      </div>
-   </div>
+                </div>
+        </div>
 </div>
