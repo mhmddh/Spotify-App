@@ -3,46 +3,68 @@
   --dark-color: black;
 }
 
-@import '~bootstrap/dist/css/bootstrap.min.css';
-.p-l-25 {padding-left:25px;}
-.p-r-25 {padding-right:25px;}
-.p-10{padding: 10px;}
+@import "~bootstrap/dist/css/bootstrap.min.css";
+.p-l-25 {
+  padding-left: 25px;
+}
+.p-r-25 {
+  padding-right: 25px;
+}
+.p-10 {
+  padding: 10px;
+}
 
 .centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 30%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-  }
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.search-centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.search-centered input {
+  height: 45px;
+}
+.centered button {
+  height: 45px;
+}
 
 .outer {
-text-align: center;
+  text-align: center;
 }
 
-  .wrapper {
-   text-align: center;
-  }
-  .green {
-    color: rgb(30, 215, 96) /*spotify icon color */
-  }
-
-  .button {
-    border-radius: 4px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 40%;
-    margin-left: -20%;
+.wrapper {
+  text-align: center;
+}
+.green {
+  color: rgb(30, 215, 96); /*spotify icon color */
 }
 
-  .relativecenter{
-    position:relative;
-    left: 25%;
-    width: 50%;
+.button {
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  margin-left: -20%;
+}
 
-  }
+.relativecenter {
+  position: relative;
+  left: 22%;
+  width: 54%;
+}
+.relativecenter input {
+  height: 45px;
+}
 .input-wrapper {
   position: relative;
   width: 100%;
@@ -63,6 +85,20 @@ text-align: center;
 }
 
 input {
-width: 100%;
-padding-right: 30px;
+  width: 100%;
+  padding-right: 30px;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .search-result {
+    justify-content: center;
+  }
 }

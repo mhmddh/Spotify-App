@@ -1,5 +1,5 @@
 <br>
-<div [ngClass]="{'centered' : (searchStr==null || searchStr==''),'relativecenter':(searchStr!=null && searchStr!='')}">
+<div [ngClass]="{'search-centered' : (searchStr==null || searchStr==''),'relativecenter':(searchStr!=null && searchStr!='')}">
     <div class="input-wrapper">
         <input class="form-control" type="text" placeholder="Search for an artist..." [(ngModel)]="searchStr"
             name="searchStr" (keyup)="searchMusic()">
