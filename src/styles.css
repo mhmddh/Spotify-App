@@ -32,6 +32,7 @@
 
 .search-centered input {
   height: 45px;
+  padding-left: 25px !important;
 }
 .centered button {
   height: 45px;
@@ -64,6 +65,8 @@
 }
 .relativecenter input {
   height: 45px;
+  padding-left: 25px;
+
 }
 .input-wrapper {
   position: relative;
@@ -80,8 +83,8 @@
   font-size: 18px;
   padding-right: 0.5em;
   position: absolute;
-  top: 6px;
-  right: 0;
+  top: 10px;
+  right: 5px;
 }
 
 input {
