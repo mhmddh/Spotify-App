@@ -6,27 +6,13 @@ import { SpotifyAuthResponse } from '../common/spotify-auth';
 @Injectable()
 export class TokenService {
 
-  private token: string= '';
+  private token: string = '';
   private token$ = new BehaviorSubject(this.token);
 
+  // this is for login component 
   public get oAuthToken(): string {
     var usertoken = localStorage.getItem('id_token');
     return usertoken;
-  }
-
-  public clearToken(): void {
-    this.token = '';
-    this.token$.next(this.token);
-  }
-
-  public get authHeader(): {[name: string]: string} {
-   // return this.token ? { Authorization: `Bearer ${this.token}` } : {};
-    return localStorage.getItem('id_token') ? { Authorization: `Bearer ${localStorage.getItem('id_token')}` } : {};
-
-  }
-
-  public get authTokens(): Observable<string> {
-    return this.token$.asObservable();
   }
 
   public setAuthToken(spotifyResponse: SpotifyAuthResponse): boolean {
@@ -43,7 +29,19 @@ export class TokenService {
   private setSession(authResult) {
     const expiresAt = moment().add(authResult.expires_in, 'second');
     localStorage.setItem('id_token', authResult.access_token);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
+    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+  }
+
+  public clearToken(): void {
+    this.token = '';
+    this.token$.next(this.token);
+  }
+  public get authHeader(): { [name: string]: string } {
+    return localStorage.getItem('id_token') ? { Authorization: `Bearer ${localStorage.getItem('id_token')}` } : {};
+
+  }
+  public get authTokens(): Observable<string> {
+    return this.token$.asObservable();
   }
 
 }

@@ -14,6 +14,4 @@ export class SpotifyAuthRequest {
     grant_type: 'authorization_code' | string;
     code: string;
     redirect_uri: string;
-    //   Authorization: string;
-
 }

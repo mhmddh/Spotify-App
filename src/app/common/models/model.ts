@@ -1,5 +1,9 @@
 export interface Album {
     id: number;
+    name: string;
+    release_date:string;
+    total_tracks:number;
+    external_urls: any
 }
 
 export interface Artist {
@@ -7,5 +11,4 @@ export interface Artist {
     name: string;
     genres: any;
     albums: Album[];
-    external_urls: any
 }

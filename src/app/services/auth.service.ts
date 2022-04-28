@@ -30,22 +30,6 @@ export class AuthService {
       .catch(this.handleError);
   }
 
-  private handleError(error: Response) {
-    // in a real world app, we may send the server to some remote logging infrastructure
-    // instead of just logging it to the console
-    return Observable.throw(error || "Server Error");
-  }
-  private setSession(authResult) {
-    const expiresAt = moment().add(authResult.expires_in, 'second');
-    localStorage.setItem('id_token', authResult.access_token);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
-  }
-
-  logout() {
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
-  }
-
   public isLoggedIn() {
     if (localStorage.getItem('id_token')) {
       if (!moment().isBefore(this.getExpiration())) {
@@ -56,14 +40,23 @@ export class AuthService {
     return false;
   }
 
-  isLoggedOut() {
-    return !this.isLoggedIn();
-  }
-
   getExpiration() {
     const expiration = localStorage.getItem('expires_at');
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
+  }
+
+  logout() {
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+  }
+
+  isLoggedOut() {
+    return !this.isLoggedIn();
+  }
+
+  private handleError(error: Response) {
+    return Observable.throw(error || "Server Error");
   }
 
 }

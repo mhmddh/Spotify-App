@@ -42,7 +42,7 @@ export class ArtistListComponent implements OnInit {
     localStorage.setItem("searchartist", this.searchStr);
     if (this.searchStr != '' && this.searchStr != null) {
       this._spotifyService.searchMusic(this.searchStr).pipe(map((listing) => listing.artists.items
-        .filter(x => x.name.toLowerCase().includes(this.searchStr.toLowerCase())))   // filter((x,i)=>  {x[i].name.includes(this.searchStr)})
+        .filter(x => x.name.toLowerCase().includes(this.searchStr.toLowerCase())))
       )
         .subscribe(res => {
           this.searchRes = res;

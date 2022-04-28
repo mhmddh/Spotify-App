@@ -19,15 +19,8 @@ export class SpotifyService {
             '&type=' + type + '&market=US&limit=50&offset=0')
     }
 
-
     getAlbums(artistId: string) {
         return this.http.get(this.spotifyUrl + 'artists/' + artistId + '/albums');
-        // .map(res => res.json());
-    }
-
-    getAlbum(id: string) {
-        return this.http.get(this.spotifyUrl + 'albums/' + id);
-        // .map(res => res.json());
     }
 
 };
